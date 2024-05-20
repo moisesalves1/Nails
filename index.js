@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const ClienteRoute = require('./routes/cliente.route');
 const ProdutoRoute = require('./routes/produto.route');
+const CategoriaProdutoRoute = require('./routes/categoria-produto.route');
 const app = express();
 require('dotenv/config');
 
@@ -12,6 +13,7 @@ app.use(express.urlencoded({extended: false}));
 // routes
 app.use('/api/cliente', ClienteRoute)
 app.use('/api/produto', ProdutoRoute)
+app.use('/api/categoria-produto', CategoriaProdutoRoute)
 
 
 app.get('/', (req, res) => {
