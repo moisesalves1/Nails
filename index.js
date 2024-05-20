@@ -1,10 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const app = express();
+require('dotenv/config');
+
+
 const ClienteRoute = require('./routes/cliente.route');
 const ProdutoRoute = require('./routes/produto.route');
 const CategoriaProdutoRoute = require('./routes/categoria-produto.route');
-const app = express();
-require('dotenv/config');
+const FornecedorRoute = require('./routes/fornecedor.route');
+
+
 
 // middleware
 app.use(express.json());
@@ -14,6 +19,7 @@ app.use(express.urlencoded({extended: false}));
 app.use('/api/cliente', ClienteRoute)
 app.use('/api/produto', ProdutoRoute)
 app.use('/api/categoria-produto', CategoriaProdutoRoute)
+app.use('/api/fornecedor', FornecedorRoute)
 
 
 app.get('/', (req, res) => {
