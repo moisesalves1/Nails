@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Cliente = require('./models/cliente.model');
 const ClienteRoute = require('./routes/cliente.route');
+const ProdutoRoute = require('./routes/produto.route');
 const app = express();
 require('dotenv/config');
 
@@ -11,6 +11,7 @@ app.use(express.urlencoded({extended: false}));
 
 // routes
 app.use('/api/cliente', ClienteRoute)
+app.use('/api/produto', ProdutoRoute)
 
 
 app.get('/', (req, res) => {
